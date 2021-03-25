@@ -1,0 +1,11 @@
+*Data/
+*Models/
+*New_Models/
+*Pred_data/
+*Predictions/
+*class_scores.csv
+*scores.csv
+*weights.csv
+*evaluate_model.py
+*.vscode/
+*__pycache__/

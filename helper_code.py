@@ -5,6 +5,7 @@
 
 import numpy as np, os
 from scipy.io import loadmat
+import neurokit2 as nk
 
 # Define 12, 6, and 2 lead ECG sets.
 twelve_leads = ('I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6')
@@ -122,9 +123,9 @@ def get_num_samples(header):
             break
     return num_samples
 
-# Get gains from header.
-def get_gains(header, leads):
-    gains = np.zeros(len(leads), dtype=np.float32)
+# Get ADC gains (ADC units per physical unit), floating-point number for ECG leads, from header.
+def get_adcgains(header, leads):
+    adc_gains = np.zeros(len(leads), dtype=np.float32)
     for i, l in enumerate(header.split('\n')):
         entries = l.split(' ')
         if i==0:
@@ -134,12 +135,12 @@ def get_gains(header, leads):
             if current_lead in leads:
                 j = leads.index(current_lead)
                 try:
-                    gains[j] = float(entries[2].split('/')[0])
+                    adc_gains[j] = float(entries[2].split('/')[0])
                 except:
                     pass
         else:
             break
-    return gains
+    return adc_gains
 
 # Get baselines from header.
 def get_baselines(header, leads):
@@ -187,3 +188,4 @@ def save_outputs(output_file, classes, labels, probabilities):
     # Save the model outputs.
     with open(output_file, 'w') as f:
         f.write(output_string)
+

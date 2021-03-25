@@ -55,6 +55,7 @@ This README has instructions for running the example code and writing and runnin
 We also included a script, `extract_leads_wfdb.py`, for extracting reduced-lead sets from the training data. You can use this script to produce reduced-lead data that you can use with your code. You can run this script using the following commands:
 
     python extract_leads_wfdb.py -i twelve_lead_directory -o two_lead_directory -l II V5 
+    python extract_leads_wfdb.py -i twelve_lead_directory -o three_lead_directory -l I II V2 
     python extract_leads_wfdb.py -i twelve_lead_directory -o six_lead_directory -l I II III aVL aVR aVF 
 
 Here, the `-i` argument gives the input folder, the `-o` argument gives the output folder, and the `-l` argument gives the leads.
@@ -124,5 +125,6 @@ Please see the [PhysioNet/CinC Challenge 2021 webpage](https://physionetchalleng
 
 * [The PhysioNet/CinC Challenge 2021 webpage](https://physionetchallenges.org/2021/)
 * [MATLAB example code for the PhysioNet/CinC Challenge 2021](https://github.com/physionetchallenges/matlab-classifier-2021)
-* [Evaluation code for the PhysioNet/CinC Challenge 2021](https://github.com/physionetchallenges/evaluation-2021)
-* [Frequently Asked Questions (FAQ)](https://physionetchallenges.org/faq/)
+* [Evaluation code for the PhysioNet/CinC Challenge 2021](https://github.com/physionetchallenges/evaluation-2021) 
+* [2021 Challenge Frequently Asked Questions (FAQ)](https://physionetchallenges.org/2021/faq/) 
+* [Frequently Asked Questions (FAQ)](https://physionetchallenges.org/faq/) 
